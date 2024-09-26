@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Available Books</title>
+</head>
+<body>
+    <h1>Available Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }}
+                <form action="{{ url_for('books.borrow_book', book_id=book.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Borrow</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
