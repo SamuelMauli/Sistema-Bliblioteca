@@ -18,13 +18,3 @@ def login():
             return redirect(url_for('books.list_books'))  # Redireciona após o login
     return render_template('login.html')
 
-@auth.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        new_user = User(username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('auth.login'))
-    return render_template('register.html')
