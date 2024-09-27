@@ -10,3 +10,8 @@ class Book(db.Model):
     ano_publicacao = Column(Integer)
     preco = Column(Float)
 
+    def __init__(self, titulo, autor, ano_publicacao, preco):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano_publicacao = ano_publicacao
+        self.preco = preco
