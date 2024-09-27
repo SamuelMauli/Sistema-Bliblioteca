@@ -1,10 +1,17 @@
+from sqlalchemy import Column, Integer, String, Float
 from ..database import db
 
 class Book(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(200), nullable=False)
-    author = db.Column(db.String(100), nullable=False)
-    available = db.Column(db.Boolean, default=True)
+    __tablename__ = 'livros'  # nome da tabela no banco de dados
 
-    def __repr__(self):
-        return f'<Book {self.title}>'
+    id = Column(Integer, primary_key=True)
+    titulo = Column(String(100), nullable=False)  # ajuste o tamanho conforme necessário
+    autor = Column(String(100), nullable=False)
+    ano_publicacao = Column(Integer)
+    preco = Column(Float)
+
+    def __init__(self, titulo, autor, ano_publicacao, preco):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano_publicacao = ano_publicacao
+        self.preco = preco

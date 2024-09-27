@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Livro</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: white;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Adicionar Livro</h1>
+        <form action="{{ url_for('books.add_book') }}" method="post">
+            <input type="text" name="titulo" placeholder="Título" required>
+            <input type="text" name="autor" placeholder="Autor" required>
+            <input type="number" name="ano_publicacao" placeholder="Ano de Publicação" required>
+            <input type="number" name="preco" placeholder="Preço" required>
+            <input type="submit" value="Adicionar Livro">
+        </form>
+        <a href="{{ url_for('books.list_books') }}">Voltar para a lista de livros</a>
+    </div>
+</body>
+</html>
