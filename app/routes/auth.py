@@ -15,7 +15,7 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
-            return redirect(url_for('books.list_books'))  # Redireciona após o login
+            return redirect(url_for('books.list_books'))
     return render_template('login.html')
 
 @auth.route('/register', methods=['GET', 'POST'])

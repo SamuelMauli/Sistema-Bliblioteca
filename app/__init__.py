@@ -12,7 +12,7 @@ def create_app():
     db.init_app(app)
 
     with app.app_context():
-        db.create_all()  # Cria as tabelas no banco de dados
+        db.create_all()
 
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(books_blueprint)

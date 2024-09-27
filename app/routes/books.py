@@ -6,8 +6,8 @@ books = Blueprint('books', __name__)
 
 @books.route('/books')
 def list_books():
-    page = request.args.get('page', 1, type=int)  # Obter o número da página
-    per_page = 5  # Número de livros por página
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
     books_query = Book.query.paginate(page=page, per_page=per_page)
 
     return render_template('books.html', books=books_query.items, page=books_query.page, total_pages=books_query.pages)
@@ -55,8 +55,8 @@ def delete_book(book_id):
 @books.route('/books/search', methods=['GET'])
 def search_books():
     query = request.args.get('query', '')
-    page = request.args.get('page', 1, type=int)  # Obter o número da página
-    per_page = 5  # Número de livros por página
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
 
     books_query = Book.query.filter(Book.titulo.contains(query)).paginate(page=page, per_page=per_page)
 
